@@ -9,10 +9,11 @@ public class Truck implements Runnable {
     private int capacity;
     Elevator[] elevators;
 
-    public Truck(int nRaces, int capacity, Elevator... elevators) {
+
+    public Truck(int nRaces, int capacity, Elevator elevator1, Elevator elevator2) {
         this.nRaces = nRaces;
         this.capacity = capacity;
-        this.elevators = elevators;
+        this.elevators = new Elevator[]{elevator1, elevator2};
     }
 
     @Override
