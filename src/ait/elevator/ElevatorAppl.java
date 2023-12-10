@@ -9,11 +9,12 @@ public class ElevatorAppl {
     private static final int CAPACITY = 20;
 
     public static void main(String[] args) throws InterruptedException {
+        long currentTime = System.currentTimeMillis();
         Elevator lenin = new Elevator("lenin");
         Elevator stalin = new Elevator("stalin");
         Truck[] trucks = new Truck[N_TRUCK];
         for (int i = 0; i < trucks.length; i++) {
-            trucks[i] = new Truck(N_RACES, CAPACITY, lenin,stalin);
+            trucks[i] = new Truck(N_RACES, CAPACITY, lenin, stalin);
         }
         Thread[] threads = new Thread[N_TRUCK];
         for (int i = 0; i < threads.length; i++) {
@@ -23,7 +24,8 @@ public class ElevatorAppl {
         for (int i = 0; i < threads.length; i++) {
             threads[i].join();
         }
-        System.out.println("Elevator " + lenin.getName() + " has " + lenin.getCurrentVolume());
-        System.out.println("Elevator " + stalin.getName() + " has " + stalin.getCurrentVolume());
+        System.out.println("elevator " + lenin.getName() + " has " + lenin.getCurrentVolume());
+        System.out.println("elevator " + stalin.getName() + " has " + stalin.getCurrentVolume());
+        System.out.println("time = " + (System.currentTimeMillis() - currentTime));
     }
 }
